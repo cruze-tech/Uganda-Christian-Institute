@@ -1,0 +1,23 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout
+  title="404 | Page Not Found | UCI Lira"
+  description="The page you requested was not found. Return to the UCI Lira homepage or continue to key sections."
+>
+  <section class="container-shell py-24 md:py-28">
+    <div class="glass-card mx-auto max-w-3xl rounded-[2rem] p-10 text-center">
+      <span class="eyebrow">404 Error</span>
+      <h1 class="mt-4 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">Page not found</h1>
+      <p class="mx-auto mt-5 max-w-xl text-base leading-8 text-slate-600">
+        The page you requested is unavailable. Use the links below to continue exploring the site.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a href="/" class="btn-primary">Back to Home</a>
+        <a href="/admissions" class="btn-secondary">Go to Admissions</a>
+        <a href="/contact" class="btn-secondary">Contact Us</a>
+      </div>
+    </div>
+  </section>
+</MainLayout>

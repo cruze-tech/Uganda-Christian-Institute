@@ -1,0 +1,86 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ProgramCard from '../components/ProgramCard.astro';
+import CTA from '../components/CTA.astro';
+import { site, programmes } from '../data/site';
+
+const certificateProgrammes = programmes.filter((item) => item.category === 'Certificate');
+const diplomaProgrammes = programmes.filter((item) => item.category === 'Diploma');
+const extensionProgrammes = programmes.filter((item) => item.category === 'Diploma Extension');
+---
+
+<MainLayout
+  title="Programmes | UCI Lira Nursing and Midwifery"
+  description="Browse certificate, direct diploma, and extension nursing and midwifery pathways at UCI Lira."
+>
+  <section class="container-shell py-16 md:py-20">
+    <div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+      <div class="space-y-6">
+        <span class="eyebrow">Programmes Catalogue</span>
+        <h1 class="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">Programmes designed for entry, progression, and professional advancement</h1>
+        <p class="text-base leading-8 text-slate-600">
+          UCI Lira offers certificate and diploma pathways in nursing and midwifery with options for direct entry and extension routes.
+        </p>
+        <p class="text-sm leading-7 text-slate-600">
+          Each path aligns with practical competence, patient-centered service, and values-based leadership in healthcare settings.
+        </p>
+      </div>
+
+      <div class="glass-card overflow-hidden rounded-[2rem]">
+        <img src="/images/training/nursing-training-1.webp" alt="Practical nursing training in simulation setting" class="h-full min-h-[320px] w-full object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <section class="container-shell mt-8 space-y-8">
+    <SectionHeader
+      eyebrow="Certificate Pathways"
+      title="Foundational routes for future healthcare professionals"
+      copy="Certificate programmes provide strong grounding in professional conduct, practical skill development, and safe care delivery."
+    />
+
+    <div class="grid gap-6 lg:grid-cols-2">
+      {certificateProgrammes.map((item) => (
+        <ProgramCard item={item} />
+      ))}
+    </div>
+  </section>
+
+  <section class="container-shell mt-20 space-y-8">
+    <SectionHeader
+      eyebrow="Direct Diploma Pathways"
+      title="Expanded depth for advanced nursing and midwifery preparation"
+      copy="Direct diploma options support learners seeking stronger clinical depth and longer-term professional growth."
+    />
+
+    <div class="grid gap-6 lg:grid-cols-2">
+      {diplomaProgrammes.map((item) => (
+        <ProgramCard item={item} />
+      ))}
+    </div>
+  </section>
+
+  <section class="container-shell mt-20 space-y-8">
+    <SectionHeader
+      eyebrow="Extension Pathways"
+      title="Upgrade routes for practicing professionals"
+      copy="Extension options are structured for practitioners looking to deepen capability and strengthen career mobility."
+    />
+
+    <div class="grid gap-6 lg:grid-cols-2">
+      {extensionProgrammes.map((item) => (
+        <ProgramCard item={item} />
+      ))}
+    </div>
+  </section>
+
+  <CTA
+    title="Need help choosing the right programme?"
+    copy="Start with admissions guidance, review eligibility expectations, and proceed through the official portal when ready."
+    primaryHref="/admissions"
+    primaryLabel="See Admissions Guide"
+    secondaryHref={site.admissionsPortal}
+    secondaryLabel="Apply Online"
+  />
+</MainLayout>

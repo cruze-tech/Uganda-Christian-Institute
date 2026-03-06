@@ -1,0 +1,80 @@
+{
+  "generatedAt": "2026-03-06",
+  "policy": {
+    "allowedSources": [
+      "https://www.uci.ac.ug",
+      "https://uci.ac.ug",
+      "official UCI social pages"
+    ],
+    "publicAttribution": false,
+    "notes": "One-time curated import. Current batch sourced from official UCI website media endpoints and converted to local WebP assets."
+  },
+  "downloadMethod": "curl -k -L --resolve www.uci.ac.ug:443:148.163.121.27",
+  "assets": [
+    {
+      "local": "public/images/logo/uci-logo.webp",
+      "source": "https://www.uci.ac.ug/uploads/settings/17109936135400.png",
+      "category": "Brand"
+    },
+    {
+      "local": "public/images/campus/campus-1.webp",
+      "source": "https://www.uci.ac.ug/uploads/topics/17108590574569.jpg",
+      "category": "Campus"
+    },
+    {
+      "local": "public/images/campus/campus-2.webp",
+      "source": "https://www.uci.ac.ug/uploads/topics/17108587767905.jpg",
+      "category": "Campus"
+    },
+    {
+      "local": "public/images/campus/campus-3.webp",
+      "source": "https://www.uci.ac.ug/uploads/topics/17108589381250.jpg",
+      "category": "Campus"
+    },
+    {
+      "local": "public/images/training/nursing-training-1.webp",
+      "source": "https://www.uci.ac.ug/uploads/topics/17108460887097.jpg",
+      "category": "Training"
+    },
+    {
+      "local": "public/images/training/nursing-training-2.webp",
+      "source": "https://www.uci.ac.ug/uploads/topics/17108668073180.jpg",
+      "category": "Training"
+    },
+    {
+      "local": "public/images/training/nursing-training-3.webp",
+      "source": "https://www.uci.ac.ug/uploads/topics/17109988546853.jpg",
+      "category": "Training"
+    },
+    {
+      "local": "public/images/midwifery/midwife-training-1.webp",
+      "source": "https://www.uci.ac.ug/uploads/topics/17109981329250.jpg",
+      "category": "Midwifery"
+    },
+    {
+      "local": "public/images/midwifery/midwife-training-2.webp",
+      "source": "https://www.uci.ac.ug/uploads/topics/17106280932766.jpg",
+      "category": "Midwifery"
+    },
+    {
+      "local": "public/images/academic/library-1.webp",
+      "source": "https://www.uci.ac.ug/uploads/topics/17106282703367.jpg",
+      "category": "Academic"
+    },
+    {
+      "local": "public/images/academic/study-1.webp",
+      "source": "https://www.uci.ac.ug/uploads/topics/17106284596436.jpg",
+      "category": "Academic"
+    },
+    {
+      "local": "public/images/graduation/graduation-1.webp",
+      "source": "https://www.uci.ac.ug/uploads/topics/17107659831970.jpg",
+      "category": "Graduation"
+    },
+    {
+      "local": "public/images/graduation/graduation-2.webp",
+      "source": "https://www.uci.ac.ug/uploads/topics/17107671348987.jpg",
+      "category": "Graduation"
+    }
+  ]
+}

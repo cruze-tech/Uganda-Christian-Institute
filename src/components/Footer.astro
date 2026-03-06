@@ -1,0 +1,39 @@
+---
+import { site } from '../data/site';
+---
+
+<footer class="mt-24 border-t border-slate-200/80 bg-white/80">
+  <div class="container-shell grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr]">
+    <div class="space-y-4">
+      <div class="flex items-center gap-3">
+        <img src="/images/logo/uci-logo.webp" alt="UCI logo" class="h-12 w-12 rounded-full border border-slate-200 object-cover" />
+        <div>
+          <p class="font-semibold text-slate-900">{site.shortName}</p>
+          <p class="text-sm text-slate-500">School of Nursing and Midwifery, Lira</p>
+        </div>
+      </div>
+      <p class="max-w-md text-sm leading-7 text-slate-600">
+        A modern institutional website concept focused on programme visibility, admissions clarity, strong visual storytelling, and a polished client demo experience.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-900">Quick Links</h3>
+      <div class="mt-4 space-y-3 text-sm text-slate-600">
+        <a href="/programmes" class="block hover:text-slate-900">Programmes</a>
+        <a href="/admissions" class="block hover:text-slate-900">Admissions</a>
+        <a href="/gallery" class="block hover:text-slate-900">Gallery</a>
+        <a href="/contact" class="block hover:text-slate-900">Contact</a>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-900">Contact</h3>
+      <div class="mt-4 space-y-3 text-sm leading-7 text-slate-600">
+        <p>{site.location}</p>
+        <a href={`tel:${site.phonePrimary.replace(/\s+/g, '')}`} class="block hover:text-slate-900">{site.phonePrimary}</a>
+        <a href={`mailto:${site.email}`} class="block hover:text-slate-900">{site.email}</a>
+      </div>
+    </div>
+  </div>
+</footer>

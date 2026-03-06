@@ -1,0 +1,83 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import CTA from '../components/CTA.astro';
+import { site, reasons, stats } from '../data/site';
+---
+
+<MainLayout
+  title="About UCI Lira | Institutional Story and Mission"
+  description="Learn the mission, values, and learner-centered focus behind UCI Lira School of Nursing and Midwifery."
+>
+  <section class="container-shell py-16 md:py-20">
+    <div class="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
+      <div class="space-y-6">
+        <span class="eyebrow">About UCI Lira</span>
+        <h1 class="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">An institute focused on compassionate, practice-ready healthcare education</h1>
+        <p class="text-base leading-8 text-slate-600">
+          UCI Lira positions nursing and midwifery education as both a professional pursuit and a service calling. The institution emphasizes discipline, competence, and faith-rooted values in daily learning.
+        </p>
+        <p class="text-sm leading-7 text-slate-600">
+          This website experience is structured to present key information clearly for applicants, parents, and partners while maintaining a polished institutional identity.
+        </p>
+      </div>
+
+      <div class="glass-card overflow-hidden rounded-[2rem]">
+        <img src="/images/academic/library-1.webp" alt="Students using the institute library" class="h-full min-h-[320px] w-full object-cover" />
+      </div>
+    </div>
+
+    <div class="mt-12 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      {stats.map((item) => (
+        <article class="glass-card rounded-3xl p-6">
+          <p class="text-3xl font-semibold tracking-tight text-slate-900">{item.value}</p>
+          <p class="mt-2 text-sm leading-6 text-slate-600">{item.label}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="container-shell mt-8 space-y-8">
+    <SectionHeader
+      eyebrow="Institutional Strength"
+      title="What shapes the UCI Lira learning experience"
+      copy="From admissions clarity to practical exposure, each touchpoint is designed to build learner confidence and trust."
+    />
+
+    <div class="grid gap-5 md:grid-cols-2">
+      {reasons.map((item) => (
+        <article class="glass-card rounded-[1.5rem] p-6">
+          <h3 class="text-xl font-semibold text-slate-900">{item.title}</h3>
+          <p class="mt-3 text-sm leading-7 text-slate-600">{item.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="container-shell mt-20 grid gap-6 md:grid-cols-2">
+    <article class="glass-card overflow-hidden rounded-[1.75rem]">
+      <img src="/images/training/nursing-training-2.webp" alt="Nursing students on campus" class="h-64 w-full object-cover" loading="lazy" />
+      <div class="p-6">
+        <h2 class="text-2xl font-semibold text-slate-900">Student-centered training environment</h2>
+        <p class="mt-3 text-sm leading-7 text-slate-600">Learners are guided through classroom, lab, and practical contexts to build competence before professional placement.</p>
+      </div>
+    </article>
+
+    <article class="glass-card overflow-hidden rounded-[1.75rem]">
+      <img src="/images/campus/campus-1.webp" alt="UCI Lira campus infrastructure" class="h-64 w-full object-cover" loading="lazy" />
+      <div class="p-6">
+        <h2 class="text-2xl font-semibold text-slate-900">A grounded and professional setting</h2>
+        <p class="mt-3 text-sm leading-7 text-slate-600">The institute environment supports focused learning with accessible spaces for study, mentorship, and institutional engagement.</p>
+      </div>
+    </article>
+  </section>
+
+  <CTA
+    title="Need a deeper institutional profile?"
+    copy="You can review official profile resources and contact the institute for additional details on governance, programmes, and learner support."
+    primaryHref={site.profileUrl}
+    primaryLabel="View Official Profile"
+    secondaryHref="/contact"
+    secondaryLabel="Contact the Institute"
+  />
+</MainLayout>

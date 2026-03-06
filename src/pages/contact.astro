@@ -1,0 +1,65 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import CTA from '../components/CTA.astro';
+import { site } from '../data/site';
+---
+
+<MainLayout
+  title="Contact | UCI Lira"
+  description="Reach UCI Lira admissions and administration for programme, application, and general institute enquiries."
+>
+  <section class="container-shell py-16 md:py-20">
+    <div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+      <div class="space-y-6">
+        <span class="eyebrow">Contact UCI Lira</span>
+        <h1 class="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">Direct lines for admissions and institutional enquiries</h1>
+        <p class="text-base leading-8 text-slate-600">
+          Use the contacts below to request support on programme fit, admissions timelines, and application requirements.
+        </p>
+      </div>
+
+      <div class="glass-card overflow-hidden rounded-[2rem]">
+        <img src="/images/campus/campus-3.webp" alt="Institute landmark and campus environment" class="h-full min-h-[320px] w-full object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <section class="container-shell mt-8 space-y-8">
+    <SectionHeader
+      eyebrow="Reach Us"
+      title="Official contact channels"
+      copy="Call, email, or visit the institute for enquiry follow-up and admissions guidance."
+    />
+
+    <div class="grid gap-6 md:grid-cols-2">
+      <article class="glass-card rounded-[1.75rem] p-7">
+        <h2 class="text-2xl font-semibold text-slate-900">Admissions and Administration</h2>
+        <div class="mt-5 space-y-3 text-sm leading-7 text-slate-700">
+          <p>{site.location}</p>
+          <a href={`tel:${site.phonePrimary.replace(/\s+/g, '')}`} class="block font-medium text-slate-900 hover:text-blue-700">{site.phonePrimary}</a>
+          <a href={`tel:${site.phoneSecondary.replace(/\s+/g, '')}`} class="block font-medium text-slate-900 hover:text-blue-700">{site.phoneSecondary}</a>
+          <a href={`mailto:${site.email}`} class="block font-medium text-slate-900 hover:text-blue-700">{site.email}</a>
+        </div>
+      </article>
+
+      <article class="glass-card rounded-[1.75rem] p-7">
+        <h2 class="text-2xl font-semibold text-slate-900">Quick Action Links</h2>
+        <div class="mt-5 flex flex-col gap-3">
+          <a href={site.admissionsPortal} target="_blank" rel="noreferrer" class="btn-primary">Apply via Admissions Portal</a>
+          <a href={site.downloadsUrl} target="_blank" rel="noreferrer" class="btn-secondary">Open Downloads</a>
+          <a href={site.profileUrl} target="_blank" rel="noreferrer" class="btn-secondary">View Official Profile</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <CTA
+    title="Ready to proceed with your application?"
+    copy="Use the official portal to submit and then keep communication active through the admissions contacts for status updates."
+    primaryHref={site.admissionsPortal}
+    primaryLabel="Apply Online"
+    secondaryHref="/admissions"
+    secondaryLabel="Admissions Steps"
+  />
+</MainLayout>

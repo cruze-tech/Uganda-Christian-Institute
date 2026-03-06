@@ -1,0 +1,71 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import NewsCard from '../components/NewsCard.astro';
+import CTA from '../components/CTA.astro';
+import { site, news } from '../data/site';
+---
+
+<MainLayout
+  title="News | UCI Lira Updates"
+  description="Read recent UCI Lira updates on admissions improvements, programme visibility, and gallery storytelling."
+>
+  <section class="container-shell py-16 md:py-20">
+    <div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+      <div class="space-y-6">
+        <span class="eyebrow">News and Updates</span>
+        <h1 class="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">Current updates for applicants, families, and partners</h1>
+        <p class="text-base leading-8 text-slate-600">
+          This section highlights practical updates that improve navigation, admissions clarity, and programme discoverability across the site.
+        </p>
+        <p class="text-sm leading-7 text-slate-600">
+          For official notices and additional updates, applicants are encouraged to maintain direct contact with the institute.
+        </p>
+      </div>
+
+      <div class="glass-card overflow-hidden rounded-[2rem]">
+        <img src="/images/graduation/graduation-2.webp" alt="Graduation celebration moment" class="h-full min-h-[320px] w-full object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <section class="container-shell mt-8 space-y-8">
+    <SectionHeader
+      eyebrow="Latest Items"
+      title="Recent site and admissions highlights"
+      copy="Each update links to the relevant section so visitors can move directly from information to action."
+    />
+
+    <div class="grid gap-5 lg:grid-cols-3">
+      {news.map((item) => (
+        <NewsCard item={item} />
+      ))}
+    </div>
+  </section>
+
+  <section class="container-shell mt-20 grid gap-6 md:grid-cols-2">
+    <article class="glass-card rounded-[1.75rem] p-7">
+      <h2 class="text-2xl font-semibold text-slate-900">Why this update flow matters</h2>
+      <p class="mt-4 text-sm leading-7 text-slate-600">
+        Prospective students often decide quickly when information is clear. Focused updates help applicants understand where to start and how to proceed with confidence.
+      </p>
+    </article>
+
+    <article class="glass-card rounded-[1.75rem] p-7">
+      <h2 class="text-2xl font-semibold text-slate-900">Need an official clarification?</h2>
+      <p class="mt-4 text-sm leading-7 text-slate-600">
+        Contact the admissions team directly for entry requirements, deadlines, and intake-specific guidance.
+      </p>
+      <a href="/contact" class="mt-5 inline-flex items-center text-sm font-semibold text-slate-900 hover:text-blue-700">Go to Contact →</a>
+    </article>
+  </section>
+
+  <CTA
+    title="Continue with admissions or programme selection"
+    copy="Move from updates to action by reviewing the latest admissions guidance and programme pathways."
+    primaryHref="/admissions"
+    primaryLabel="Open Admissions"
+    secondaryHref="/programmes"
+    secondaryLabel="View Programmes"
+  />
+</MainLayout>

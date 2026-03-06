@@ -1,0 +1,67 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import CTA from '../components/CTA.astro';
+import { site, gallery } from '../data/site';
+
+const categories = [...new Set(gallery.map((item) => item.tag))];
+---
+
+<MainLayout
+  title="Gallery | UCI Lira Campus and Training Moments"
+  description="Browse official UCI Lira gallery highlights across campus life, training sessions, academic study, and graduation milestones."
+>
+  <section class="container-shell py-16 md:py-20">
+    <div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+      <div class="space-y-6">
+        <span class="eyebrow">Visual Gallery</span>
+        <h1 class="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">Official institute moments across learning, campus, and graduation life</h1>
+        <p class="text-base leading-8 text-slate-600">
+          This gallery curates institutional imagery to help prospective students and families understand the environment, training tone, and learner experience.
+        </p>
+        <p class="text-sm leading-7 text-slate-600">
+          Categories include Campus, Training, Midwifery, Academic, and Graduation for fast visual discovery.
+        </p>
+      </div>
+
+      <div class="glass-card overflow-hidden rounded-[2rem]">
+        <img src="/images/graduation/graduation-1.webp" alt="UCI graduation procession" class="h-full min-h-[320px] w-full object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <section class="container-shell mt-8 space-y-8">
+    <SectionHeader
+      eyebrow="Categories"
+      title="Browse by visual focus"
+      copy="Each category provides context on day-to-day learner engagement and institutional identity."
+    />
+
+    <div class="flex flex-wrap gap-3">
+      {categories.map((category) => (
+        <span class="rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-slate-700">{category}</span>
+      ))}
+    </div>
+
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {gallery.map((item) => (
+        <article class="glass-card overflow-hidden rounded-[1.5rem]">
+          <img src={item.src} alt={item.alt} class="h-64 w-full object-cover" loading="lazy" />
+          <div class="p-5">
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-blue-700">{item.tag}</p>
+            <p class="mt-2 text-sm leading-7 text-slate-600">{item.alt}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <CTA
+    title="Explore more official visuals from the institute"
+    copy="Visit the official UCI gallery channels for additional pictorial updates and event highlights."
+    primaryHref={site.galleryUrl}
+    primaryLabel="Open Official Pictorials"
+    secondaryHref="/contact"
+    secondaryLabel="Request More Details"
+  />
+</MainLayout>

@@ -1,0 +1,120 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ProgramCard from '../components/ProgramCard.astro';
+import NewsCard from '../components/NewsCard.astro';
+import CTA from '../components/CTA.astro';
+import { site, stats, programmes, reasons, news, gallery } from '../data/site';
+
+const featuredProgrammes = programmes.slice(0, 3);
+const featuredGallery = gallery.slice(0, 6);
+---
+
+<MainLayout
+  title="UCI Lira | Faith-Rooted Nursing and Midwifery Education"
+  description="Explore programmes, admissions guidance, campus life, and institutional updates for UCI Lira School of Nursing and Midwifery."
+>
+  <section class="container-shell py-16 md:py-20">
+    <div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+      <div class="space-y-6">
+        <span class="eyebrow">Home Overview</span>
+        <h1 class="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">{site.name}</h1>
+        <p class="max-w-2xl text-base leading-8 text-slate-600">{site.tagline}</p>
+        <p class="max-w-2xl text-sm leading-7 text-slate-600">
+          This official-facing demo experience is focused on clear programme visibility, admissions momentum, and strong institutional trust through real campus and student imagery.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="/admissions" class="btn-primary">Start Admissions</a>
+          <a href="/programmes" class="btn-secondary">Browse Programmes</a>
+        </div>
+      </div>
+
+      <div class="glass-card overflow-hidden rounded-[2rem]">
+        <img src="/images/campus/campus-2.webp" alt="UCI Lira main campus environment" class="h-full min-h-[300px] w-full object-cover" />
+      </div>
+    </div>
+
+    <div class="mt-12 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      {stats.map((item) => (
+        <article class="glass-card rounded-3xl p-6">
+          <p class="text-3xl font-semibold tracking-tight text-slate-900">{item.value}</p>
+          <p class="mt-2 text-sm leading-6 text-slate-600">{item.label}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="container-shell mt-8 space-y-8">
+    <SectionHeader
+      eyebrow="Programmes"
+      title="Core study pathways built for real-world healthcare service"
+      copy="Start from certificate level, progress through direct diploma routes, or advance through extension tracks designed for practicing professionals."
+    />
+
+    <div class="grid gap-6 lg:grid-cols-3">
+      {featuredProgrammes.map((item) => (
+        <ProgramCard item={item} />
+      ))}
+    </div>
+  </section>
+
+  <section class="container-shell mt-20 space-y-8">
+    <SectionHeader
+      eyebrow="Why UCI Lira"
+      title="A values-first institution with practical learning focus"
+      copy="Each section of this website is designed to make discovery easier for applicants, parents, and partners while preserving the school's identity."
+    />
+
+    <div class="grid gap-5 md:grid-cols-2">
+      {reasons.map((item) => (
+        <article class="glass-card rounded-[1.5rem] p-6">
+          <h3 class="text-xl font-semibold text-slate-900">{item.title}</h3>
+          <p class="mt-3 text-sm leading-7 text-slate-600">{item.body}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="container-shell mt-20 space-y-8">
+    <SectionHeader
+      eyebrow="Gallery Preview"
+      title="Campus and training moments from institute archives"
+      copy="A quick visual look at campus spaces, practical sessions, and milestone celebrations."
+    />
+
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {featuredGallery.map((item) => (
+        <article class="glass-card overflow-hidden rounded-[1.5rem]">
+          <img src={item.src} alt={item.alt} class="h-56 w-full object-cover" loading="lazy" />
+          <div class="p-4">
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-blue-700">{item.tag}</p>
+            <p class="mt-2 text-sm leading-6 text-slate-600">{item.alt}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="container-shell mt-20 space-y-8">
+    <SectionHeader
+      eyebrow="News"
+      title="Recent updates in admissions and programme discovery"
+      copy="Stay aligned with current changes, improvements, and update highlights relevant to future applicants."
+    />
+
+    <div class="grid gap-5 lg:grid-cols-3">
+      {news.map((item) => (
+        <NewsCard item={item} />
+      ))}
+    </div>
+  </section>
+
+  <CTA
+    title="Ready to begin your journey with UCI Lira?"
+    copy="Use the official admissions portal for applications and reach the admissions team for guidance on programme fit and next intake timelines."
+    primaryHref={site.admissionsPortal}
+    primaryLabel="Apply Online"
+    secondaryHref="/contact"
+    secondaryLabel="Talk to Admissions"
+  />
+</MainLayout>

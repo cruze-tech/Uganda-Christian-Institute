@@ -1,0 +1,27 @@
+---
+interface Props {
+  title: string;
+  copy: string;
+  primaryHref: string;
+  primaryLabel: string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
+}
+const { title, copy, primaryHref, primaryLabel, secondaryHref, secondaryLabel } = Astro.props;
+---
+
+<section class="container-shell mt-20">
+  <div class="glass-card grid gap-8 rounded-[2rem] border border-white/70 bg-[linear-gradient(135deg,rgba(18,48,95,1),rgba(45,108,223,.92))] p-8 text-white shadow-[0_25px_90px_-35px_rgba(18,48,95,0.7)] md:grid-cols-[1.4fr_auto] md:items-center md:p-10">
+    <div>
+      <span class="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-white/90">Take the next step</span>
+      <h2 class="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">{title}</h2>
+      <p class="mt-4 max-w-2xl text-sm leading-7 text-white/80">{copy}</p>
+    </div>
+    <div class="flex flex-wrap gap-3">
+      <a href={primaryHref} target={primaryHref.startsWith('http') ? '_blank' : undefined} rel="noreferrer" class="inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-900">{primaryLabel}</a>
+      {secondaryHref && secondaryLabel && (
+        <a href={secondaryHref} target={secondaryHref.startsWith('http') ? '_blank' : undefined} rel="noreferrer" class="inline-flex items-center justify-center rounded-full border border-white/25 bg-white/10 px-5 py-3 text-sm font-semibold text-white">{secondaryLabel}</a>
+      )}
+    </div>
+  </div>
+</section>
