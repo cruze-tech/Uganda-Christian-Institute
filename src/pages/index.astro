@@ -17,11 +17,11 @@ const featuredGallery = gallery.slice(0, 6);
   <section class="container-shell py-16 md:py-20">
     <div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
       <div class="space-y-6">
-        <span class="eyebrow">Home Overview</span>
+        <span class="eyebrow">Uganda Christian Institute of Nursing and Midwifery</span>
         <h1 class="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">{site.name}</h1>
         <p class="max-w-2xl text-base leading-8 text-slate-600">{site.tagline}</p>
         <p class="max-w-2xl text-sm leading-7 text-slate-600">
-          This official-facing demo experience is focused on clear programme visibility, admissions momentum, and strong institutional trust through real campus and student imagery.
+          Uganda Christian Institute of Nursing and Midwifery equips learners for compassionate service through practical training, disciplined mentorship, and faith-rooted professional formation.
         </p>
         <div class="flex flex-wrap gap-3">
           <a href="/admissions" class="btn-primary">Start Admissions</a>
@@ -30,7 +30,7 @@ const featuredGallery = gallery.slice(0, 6);
       </div>
 
       <div class="glass-card overflow-hidden rounded-[2rem]">
-        <img src="/images/campus/campus-2.webp" alt="UCI Lira main campus environment" class="h-full min-h-[300px] w-full object-cover" />
+        <img src="/images/campus/campus-2.webp" alt="UCI Lira main campus environment" decoding="async" fetchpriority="high" class="h-full min-h-[300px] w-full object-cover" />
       </div>
     </div>
 
@@ -62,7 +62,7 @@ const featuredGallery = gallery.slice(0, 6);
     <SectionHeader
       eyebrow="Why UCI Lira"
       title="A values-first institution with practical learning focus"
-      copy="Each section of this website is designed to make discovery easier for applicants, parents, and partners while preserving the school's identity."
+      copy="The institute combines practical preparation, Christian values, and learner support to develop confident nursing and midwifery professionals."
     />
 
     <div class="grid gap-5 md:grid-cols-2">
@@ -85,7 +85,7 @@ const featuredGallery = gallery.slice(0, 6);
     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {featuredGallery.map((item) => (
         <article class="glass-card overflow-hidden rounded-[1.5rem]">
-          <img src={item.src} alt={item.alt} class="h-56 w-full object-cover" loading="lazy" />
+          <img src={item.src} alt={item.alt} class="h-56 w-full object-cover" loading="lazy" decoding="async" />
           <div class="p-4">
             <p class="text-xs font-semibold uppercase tracking-[0.16em] text-blue-700">{item.tag}</p>
             <p class="mt-2 text-sm leading-6 text-slate-600">{item.alt}</p>

@@ -25,7 +25,7 @@ const categories = [...new Set(gallery.map((item) => item.tag))];
       </div>
 
       <div class="glass-card overflow-hidden rounded-[2rem]">
-        <img src="/images/graduation/graduation-1.webp" alt="UCI graduation procession" class="h-full min-h-[320px] w-full object-cover" />
+        <img src="/images/graduation/graduation-1.webp" alt="UCI graduation procession" decoding="async" class="h-full min-h-[320px] w-full object-cover" />
       </div>
     </div>
   </section>
@@ -46,7 +46,7 @@ const categories = [...new Set(gallery.map((item) => item.tag))];
     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {gallery.map((item) => (
         <article class="glass-card overflow-hidden rounded-[1.5rem]">
-          <img src={item.src} alt={item.alt} class="h-64 w-full object-cover" loading="lazy" />
+          <img src={item.src} alt={item.alt} class="h-64 w-full object-cover" loading="lazy" decoding="async" />
           <div class="p-5">
             <p class="text-xs font-semibold uppercase tracking-[0.16em] text-blue-700">{item.tag}</p>
             <p class="mt-2 text-sm leading-7 text-slate-600">{item.alt}</p>

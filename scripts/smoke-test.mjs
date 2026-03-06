@@ -5,7 +5,7 @@ const distDir = path.resolve('dist');
 
 const requiredRoutes = ['/', '/about', '/programmes', '/admissions', '/gallery', '/news', '/contact', '/online-portal', '/downloads', '/application-forms', '/404'];
 const routeMarkers = {
-  '/': 'Home Overview',
+  '/': 'Uganda Christian Institute of Nursing and Midwifery',
   '/about': 'About UCI Lira',
   '/programmes': 'Programmes Catalogue',
   '/admissions': 'Admissions Guide',

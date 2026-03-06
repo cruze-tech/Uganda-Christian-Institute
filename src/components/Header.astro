@@ -13,12 +13,12 @@ const links = [
 ---
 
 <header class="sticky top-0 z-50 border-b border-white/60 bg-white/80 backdrop-blur-xl">
-  <div class="container-shell flex items-center justify-between gap-4 py-4">
-    <a href="/" class="flex items-center gap-3">
+  <div class="container-shell flex items-center justify-between gap-3 py-4">
+    <a href="/" class="flex min-w-0 items-center gap-3">
       <img src="/images/logo/uci-logo.webp" alt="UCI logo" class="h-11 w-11 rounded-full border border-slate-200 object-cover" />
-      <div>
-        <p class="text-sm font-semibold text-slate-900">{site.shortName}</p>
-        <p class="text-xs text-slate-500">School of Nursing & Midwifery</p>
+      <div class="min-w-0">
+        <p class="truncate text-sm font-semibold text-slate-900">{site.shortName}</p>
+        <p class="truncate text-xs text-slate-500">School of Nursing & Midwifery</p>
       </div>
     </a>
 
@@ -37,19 +37,79 @@ const links = [
     </nav>
 
     <a href={site.admissionsPortal} class="btn-primary hidden md:inline-flex">Apply Online</a>
+
+    <button
+      id="mobile-menu-toggle"
+      class="mobile-hamburger md:hidden"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu-panel"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </div>
 
-  <div class="mobile-nav-scroll container-shell flex gap-2 overflow-x-auto pb-4 md:hidden">
-    {links.map(([href, label]) => (
-      <a
-        href={href}
-        class:list={[
-          'whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition',
-          pathname === href ? 'bg-slate-900 text-white' : 'border border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900'
-        ]}
-      >
-        {label}
-      </a>
-    ))}
+  <div class="relative md:hidden">
+    <div class="mobile-nav-scroll container-shell flex gap-2 overflow-x-auto pb-4">
+      {links.map(([href, label]) => (
+        <a
+          href={href}
+          class:list={[
+            'whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition',
+            pathname === href ? 'bg-slate-900 text-white' : 'border border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-slate-900'
+          ]}
+        >
+          {label}
+        </a>
+      ))}
+    </div>
+
+    <div class="mobile-scroll-indicator" aria-hidden="true">
+      <span>Swipe</span>
+      <span class="mobile-scroll-arrow">→</span>
+    </div>
+  </div>
+
+  <div id="mobile-menu-panel" class="mobile-menu-panel hidden border-t border-slate-200/80 bg-white/95 md:hidden">
+    <div class="container-shell grid gap-2 py-4">
+      {links.map(([href, label]) => (
+        <a
+          href={href}
+          class:list={[
+            'rounded-xl px-4 py-3 text-sm font-semibold transition',
+            pathname === href ? 'bg-slate-900 text-white' : 'bg-slate-50 text-slate-700 hover:bg-slate-100'
+          ]}
+        >
+          {label}
+        </a>
+      ))}
+      <a href={site.admissionsPortal} class="btn-primary mt-1 w-full justify-center">Apply Online</a>
+      <a href="/contact" class="btn-secondary w-full justify-center">Contact Admissions</a>
+    </div>
   </div>
 </header>
+
+<script is:inline>
+  const toggleButton = document.getElementById('mobile-menu-toggle');
+  const menuPanel = document.getElementById('mobile-menu-panel');
+
+  if (toggleButton && menuPanel) {
+    const closeMenu = () => {
+      toggleButton.setAttribute('aria-expanded', 'false');
+      menuPanel.classList.add('hidden');
+    };
+
+    toggleButton.addEventListener('click', () => {
+      const isOpen = toggleButton.getAttribute('aria-expanded') === 'true';
+      toggleButton.setAttribute('aria-expanded', String(!isOpen));
+      menuPanel.classList.toggle('hidden', isOpen);
+    });
+
+    menuPanel.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+  }
+</script>

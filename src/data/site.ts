@@ -3,7 +3,7 @@ export const site = {
   shortName: 'UCI Lira',
   tagline: 'Faith-rooted nursing and midwifery education for compassionate healthcare leaders.',
   description:
-    'A modern institutional website concept for Uganda Christian Institute of Nursing and Midwifery, designed for admissions, programmes, gallery, news, and contact.',
+    'Official website for Uganda Christian Institute of Nursing and Midwifery, providing admissions, programmes, gallery, news, and contact information.',
   phonePrimary: '+256 781 425432',
   phoneSecondary: '+256 392 942986',
   whatsAppDisplay: '0761435295',
@@ -18,10 +18,10 @@ export const site = {
 };
 
 export const stats = [
-  { value: '6+', label: 'Core public-facing sections refined for fast discovery' },
-  { value: '100%', label: 'Responsive layout across mobile, tablet and desktop' },
-  { value: '24/7', label: 'Admissions access through clear call-to-action paths' },
-  { value: 'Faith', label: 'Values-first positioning carried throughout the experience' }
+  { value: '6 Pathways', label: 'Certificate and diploma options in nursing and midwifery' },
+  { value: 'Practical', label: 'Simulation and clinical exposure integrated into learning' },
+  { value: 'Admissions', label: 'Guided support from enquiry through application steps' },
+  { value: 'Faith-Rooted', label: 'Christian values shaping service, discipline, and leadership' }
 ];
 
 export const programmes = [
@@ -241,40 +241,40 @@ export const programmeDetails: Record<string, ProgrammeDetail> = {
 
 export const reasons = [
   {
-    title: 'Modern, welcoming digital experience',
-    body: 'The site is designed to feel elevated, clear, and professional while staying easy to use for applicants and guardians on any device.'
+    title: 'Competence-focused health training',
+    body: 'Programmes are structured to build safe practice habits, clinical confidence, and professional readiness for service in healthcare settings.'
   },
   {
-    title: 'Admissions-first information flow',
-    body: 'Visitors can move quickly from discovery to action through clear programme cards, application guidance, and admissions calls-to-action.'
+    title: 'Faith and service values',
+    body: 'The institute emphasizes compassionate care, integrity, and responsibility as core principles in nursing and midwifery formation.'
   },
   {
-    title: 'Strong visual storytelling',
-    body: 'Campus scenes, training moments, and graduation imagery create trust and help the school feel real, active, and aspirational.'
+    title: 'Supportive learning environment',
+    body: 'Learners benefit from guided instruction, practical facilities, and a campus culture designed to encourage growth and discipline.'
   },
   {
-    title: 'Built for Netlify and easy iteration',
-    body: 'A static Astro codebase keeps the site lightweight, dependable, and simple to revise during client testing and review.'
+    title: 'Pathways for progression',
+    body: 'From certificate entry to diploma and extension routes, students can pursue clear academic and professional advancement tracks.'
   }
 ];
 
 export const news = [
   {
-    title: 'Admissions support made clearer for prospective applicants',
+    title: 'Admissions guidance for upcoming intakes',
     date: 'March 2026',
-    excerpt: 'The redesigned admissions experience puts online application access, form downloads, and campus enquiry paths in one visible flow.',
+    excerpt: 'Prospective applicants are encouraged to review programme options early and engage admissions support for intake planning and documentation guidance.',
     href: '/admissions'
   },
   {
-    title: 'Gallery-led storytelling now highlights campus and skills training',
+    title: 'Campus and skills training highlights updated',
     date: 'March 2026',
-    excerpt: 'A refreshed gallery direction helps visitors see campus life, student engagement, and the practical side of health training at a glance.',
+    excerpt: 'Newly published visuals highlight student training, academic life, and the day-to-day learning environment across the institute.',
     href: '/gallery'
   },
   {
-    title: 'Programme discovery improved for nursing and midwifery prospects',
+    title: 'Programme pathways for nursing and midwifery',
     date: 'March 2026',
-    excerpt: 'Visitors can browse certificates, direct diplomas, and extension pathways in a cleaner, more confidence-building layout.',
+    excerpt: 'Certificate, direct diploma, and extension pathways remain available for learners planning professional growth in nursing and midwifery.',
     href: '/programmes'
   }
 ];
@@ -323,15 +323,15 @@ export const admissionsChecklist = [
 
 export const faqs = [
   {
-    q: 'Can visitors apply online directly from the site?',
+    q: 'Can visitors begin application directly from this institute website?',
     a: 'Yes. The admissions page links to the online portal and forms flow, with direct contact support available while full portal features are being finalized.'
   },
   {
-    q: 'Is the demo suitable for client review on Netlify?',
-    a: 'Yes. The codebase is static, lightweight, and prepared for quick deployment and review on Netlify.'
+    q: 'How can applicants get support during application?',
+    a: 'Applicants can use admissions contacts, WhatsApp support, and the online portal/forms pages for guidance on requirements and next steps.'
   },
   {
     q: 'Can official school photos replace the current asset pack later?',
-    a: 'Yes. All local images can be swapped by replacing files in the public/images folders without rewriting page structure.'
+    a: 'Yes. Institute media assets can be updated over time while preserving programme and page structure.'
   }
 ];
