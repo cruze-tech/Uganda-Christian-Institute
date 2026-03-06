@@ -1,9 +1,9 @@
 export const site = {
-  name: 'Uganda Christian Institute School of Nursing and Midwifery, Lira',
+  name: 'Uganda Christian Institute of Nursing and Midwifery',
   shortName: 'UCI Lira',
   tagline: 'Faith-rooted nursing and midwifery education for compassionate healthcare leaders.',
   description:
-    'A modern institutional website concept for Uganda Christian Institute School of Nursing and Midwifery, Lira, designed for admissions, programmes, gallery, news, and contact.',
+    'A modern institutional website concept for Uganda Christian Institute of Nursing and Midwifery, designed for admissions, programmes, gallery, news, and contact.',
   phonePrimary: '+256 781 425432',
   phoneSecondary: '+256 392 942986',
   whatsAppDisplay: '0761435295',
@@ -80,6 +80,164 @@ export const programmes = [
     highlights: ['Professional extension', 'Skills growth', 'Service-centered learning']
   }
 ];
+
+export interface ProgrammeDetail {
+  summary: string;
+  award: string;
+  mode: string;
+  intake: string;
+  learningAreas: string[];
+  entryRequirements: string[];
+  careerPathways: string[];
+  practicum: string;
+}
+
+export const programmeDetails: Record<string, ProgrammeDetail> = {
+  'certificate-in-enrolled-nursing': {
+    summary:
+      'This foundational nursing pathway prepares learners for safe bedside support, professional conduct, and practical healthcare teamwork in supervised environments.',
+    award: 'Certificate in Enrolled Nursing',
+    mode: 'Full-time, school-based with practical rotations',
+    intake: 'Main and follow-up intake windows (as announced)',
+    learningAreas: [
+      'Foundations of anatomy, physiology, and basic pharmacology',
+      'Infection prevention, patient safety, and ward procedures',
+      'Nursing ethics, communication, and documentation',
+      'Community health introduction and health education practice'
+    ],
+    entryRequirements: [
+      'Relevant secondary education qualifications as guided by admissions',
+      'Valid identification and required application documentation',
+      'Readiness for practical learning and supervised clinical conduct'
+    ],
+    careerPathways: [
+      'Enrolled nurse support roles in hospitals and health centres',
+      'Community-based care support and outreach programmes',
+      'Progression to diploma-level nursing pathways'
+    ],
+    practicum: 'Learners complete guided practical sessions and supervised facility exposure to translate classroom training into real care scenarios.'
+  },
+  'certificate-in-midwifery': {
+    summary:
+      'A practical midwifery foundation focused on maternal and newborn care, communication with families, and safe support within reproductive health services.',
+    award: 'Certificate in Midwifery',
+    mode: 'Full-time with simulation and supervised skills sessions',
+    intake: 'Published per admissions calendar',
+    learningAreas: [
+      'Maternal and newborn care fundamentals',
+      'Antenatal, delivery, and postnatal support principles',
+      'Emergency awareness and referral readiness',
+      'Compassionate communication and record-keeping'
+    ],
+    entryRequirements: [
+      'Admission qualifications aligned to current institute guidance',
+      'Required identification and supporting academic records',
+      'Commitment to practical skills practice and professionalism'
+    ],
+    careerPathways: [
+      'Midwifery assistant roles in maternity settings',
+      'Community maternal health support services',
+      'Progression into diploma midwifery tracks'
+    ],
+    practicum: 'The course includes simulation-based practice and facility observation/placement blocks to strengthen competence in maternal care environments.'
+  },
+  'diploma-in-nursing-direct': {
+    summary:
+      'This direct-entry diploma expands nursing depth through stronger clinical reasoning, professional leadership growth, and broader patient management capability.',
+    award: 'Diploma in Nursing (Direct Entry)',
+    mode: 'Full-time, structured theory-to-practice model',
+    intake: 'Admissions windows announced by the institute',
+    learningAreas: [
+      'Advanced medical-surgical nursing concepts',
+      'Patient assessment, care planning, and evaluation',
+      'Public health integration and interdisciplinary teamwork',
+      'Leadership, quality care standards, and professional ethics'
+    ],
+    entryRequirements: [
+      'Direct-entry qualifications per current admissions criteria',
+      'Required academic transcripts and identity documents',
+      'Completion of application and verification steps'
+    ],
+    careerPathways: [
+      'Diploma-level nursing roles across clinical settings',
+      'Team coordination and supervisory support responsibilities',
+      'Future progression toward advanced health training'
+    ],
+    practicum: 'Students undertake rotational clinical placements with guided reflection, case discussions, and competency-focused assessments.'
+  },
+  'diploma-in-midwifery-direct': {
+    summary:
+      'A direct-entry diploma route centered on professional midwifery practice, safe maternal care delivery, and confidence in high-responsibility clinical settings.',
+    award: 'Diploma in Midwifery (Direct Entry)',
+    mode: 'Full-time with blended practical and classroom training',
+    intake: 'Available according to admissions announcements',
+    learningAreas: [
+      'Advanced maternal and newborn care planning',
+      'Clinical decision support in reproductive health contexts',
+      'Safe delivery practice and postnatal monitoring',
+      'Professional communication, ethics, and referral systems'
+    ],
+    entryRequirements: [
+      'Direct-entry eligibility as set by admissions guidance',
+      'Required supporting documents and complete application profile',
+      'Readiness for practical and supervised clinical learning'
+    ],
+    careerPathways: [
+      'Diploma midwifery roles in hospital and clinic environments',
+      'Maternal health programme support roles',
+      'Progression to advanced specialist studies over time'
+    ],
+    practicum: 'Learners engage in guided maternity placement experiences, simulation reinforcement, and competency review with supervisors.'
+  },
+  'diploma-in-nursing-extension': {
+    summary:
+      'This extension pathway supports practicing personnel upgrading to diploma-level nursing competence with stronger clinical and leadership capacity.',
+    award: 'Diploma in Nursing (Extension)',
+    mode: 'Extension-format programme for professional upgrade',
+    intake: 'Based on extension intake timelines',
+    learningAreas: [
+      'Clinical skill consolidation and advanced patient care',
+      'Evidence-informed nursing decision support',
+      'Leadership communication and professional accountability',
+      'Quality assurance and service improvement basics'
+    ],
+    entryRequirements: [
+      'Relevant prior nursing training credentials for extension entry',
+      'Verification documents and valid professional identity details',
+      'Compliance with institute extension application procedures'
+    ],
+    careerPathways: [
+      'Upgraded nursing roles with broader responsibility',
+      'Improved eligibility for supervisory and senior support functions',
+      'Pathway toward further professional development opportunities'
+    ],
+    practicum: 'The programme integrates supervised practical reinforcement to connect prior experience with advanced diploma standards.'
+  },
+  'diploma-in-midwifery-extension': {
+    summary:
+      'Designed for practicing midwifery personnel seeking diploma upgrade, with emphasis on safer outcomes, stronger clinical confidence, and service leadership.',
+    award: 'Diploma in Midwifery (Extension)',
+    mode: 'Extension pathway combining advanced theory and practical reinforcement',
+    intake: 'Scheduled extension intakes as communicated by admissions',
+    learningAreas: [
+      'Advanced maternal care approaches and monitoring',
+      'Practice quality, patient safety, and complication awareness',
+      'Community-centered maternal and reproductive health support',
+      'Documentation, ethics, and teamwork for care continuity'
+    ],
+    entryRequirements: [
+      'Recognized prior midwifery qualification for extension admission',
+      'Application documents and verification of required credentials',
+      'Availability for practical reinforcement activities'
+    ],
+    careerPathways: [
+      'Enhanced midwifery roles across maternity care settings',
+      'Broader responsibilities in maternal health programmes',
+      'Long-term progression toward specialist or supervisory tracks'
+    ],
+    practicum: 'Practical blocks focus on integrating upgraded knowledge into real maternal care service delivery under supervision.'
+  }
+};
 
 export const reasons = [
   {

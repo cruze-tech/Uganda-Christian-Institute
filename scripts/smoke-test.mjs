@@ -20,6 +20,14 @@ const routeMarkers = {
 
 const navRoutes = ['/', '/about', '/programmes', '/admissions', '/gallery', '/news', '/contact'];
 const galleryCategories = ['Campus', 'Training', 'Midwifery', 'Academic', 'Graduation'];
+const requiredProgrammeSlugs = [
+  'certificate-in-enrolled-nursing',
+  'certificate-in-midwifery',
+  'diploma-in-nursing-direct',
+  'diploma-in-midwifery-direct',
+  'diploma-in-nursing-extension',
+  'diploma-in-midwifery-extension'
+];
 
 function routeToFile(route) {
   if (route === '/') {
@@ -122,6 +130,22 @@ if (!fs.existsSync(distDir)) {
 
     if (/<img[^>]+srcset=["'][^"']*https?:\/\//i.test(html)) {
       failures.push(`External image srcset found in ${path.relative(distDir, file)}`);
+    }
+  }
+
+  for (const slug of requiredProgrammeSlugs) {
+    const detailFile = path.join(distDir, 'programmes', slug, 'index.html');
+    if (!fs.existsSync(detailFile)) {
+      failures.push(`Missing programme detail route: /programmes/${slug}`);
+      continue;
+    }
+
+    const detailHtml = read(detailFile);
+    if (!detailHtml.includes('Programme Detail')) {
+      failures.push(`Programme detail marker missing for /programmes/${slug}`);
+    }
+    if (!detailHtml.includes('Apply via Portal')) {
+      failures.push(`Programme detail CTA missing for /programmes/${slug}`);
     }
   }
 }

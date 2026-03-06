@@ -1,6 +1,7 @@
 ---
 interface Props {
   item: {
+    slug: string;
     title: string;
     category: string;
     duration: string;
@@ -29,5 +30,8 @@ const { item } = Astro.props;
         <span class="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700">{point}</span>
       ))}
     </div>
+    <a href={`/programmes/${item.slug}`} class="inline-flex items-center text-sm font-semibold text-slate-900 transition hover:text-blue-700">
+      View Course Details →
+    </a>
   </div>
 </article>

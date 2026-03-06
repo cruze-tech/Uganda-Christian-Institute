@@ -1,0 +1,130 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import ProgramCard from '../../components/ProgramCard.astro';
+import CTA from '../../components/CTA.astro';
+import { programmes, programmeDetails, site } from '../../data/site';
+
+export function getStaticPaths() {
+  return programmes.map((programme) => ({
+    params: { slug: programme.slug },
+    props: {
+      programme,
+      detail: programmeDetails[programme.slug]
+    }
+  }));
+}
+
+const { programme, detail } = Astro.props;
+const relatedProgrammes = programmes.filter((item) => item.slug !== programme.slug).slice(0, 2);
+---
+
+<MainLayout
+  title={`${programme.title} | UCI Lira Programmes`}
+  description={detail.summary}
+>
+  <section class="container-shell py-16 md:py-20">
+    <div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+      <div class="space-y-6">
+        <span class="eyebrow">Programme Detail</span>
+        <h1 class="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">{programme.title}</h1>
+        <p class="text-base leading-8 text-slate-600">{detail.summary}</p>
+
+        <div class="grid gap-4 sm:grid-cols-2">
+          <article class="glass-card rounded-2xl p-5">
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-blue-700">Category</p>
+            <p class="mt-2 text-sm font-semibold text-slate-900">{programme.category}</p>
+          </article>
+          <article class="glass-card rounded-2xl p-5">
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-blue-700">Duration</p>
+            <p class="mt-2 text-sm font-semibold text-slate-900">{programme.duration}</p>
+          </article>
+          <article class="glass-card rounded-2xl p-5 sm:col-span-2">
+            <p class="text-xs font-semibold uppercase tracking-[0.16em] text-blue-700">Award + Mode</p>
+            <p class="mt-2 text-sm font-semibold text-slate-900">{detail.award}</p>
+            <p class="mt-1 text-sm text-slate-600">{detail.mode}</p>
+            <p class="mt-1 text-sm text-slate-600">{detail.intake}</p>
+          </article>
+        </div>
+
+        <div class="flex flex-wrap gap-3">
+          <a href={site.admissionsPortal} class="btn-primary">Apply via Portal</a>
+          <a href={site.applicationFormsUrl} class="btn-secondary">Open Application Forms</a>
+          <a href="/programmes" class="btn-secondary">Back to Programmes</a>
+        </div>
+      </div>
+
+      <div class="glass-card overflow-hidden rounded-[2rem]">
+        <img src={programme.image} alt={programme.title} class="h-full min-h-[340px] w-full object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <section class="container-shell mt-10 grid gap-6 lg:grid-cols-3">
+    <article class="glass-card rounded-[1.75rem] p-7 lg:col-span-2">
+      <h2 class="text-2xl font-semibold text-slate-900">Learning Areas</h2>
+      <ul class="mt-5 space-y-3 text-sm leading-7 text-slate-700">
+        {detail.learningAreas.map((area) => (
+          <li class="flex gap-3">
+            <span class="mt-2 h-2 w-2 rounded-full bg-blue-700"></span>
+            <span>{area}</span>
+          </li>
+        ))}
+      </ul>
+    </article>
+
+    <article class="glass-card rounded-[1.75rem] p-7">
+      <h2 class="text-2xl font-semibold text-slate-900">Practicum Focus</h2>
+      <p class="mt-4 text-sm leading-7 text-slate-600">{detail.practicum}</p>
+    </article>
+  </section>
+
+  <section class="container-shell mt-10 grid gap-6 lg:grid-cols-2">
+    <article class="glass-card rounded-[1.75rem] p-7">
+      <h2 class="text-2xl font-semibold text-slate-900">Entry Requirements</h2>
+      <ul class="mt-5 space-y-3 text-sm leading-7 text-slate-700">
+        {detail.entryRequirements.map((entry) => (
+          <li class="flex gap-3">
+            <span class="mt-2 h-2 w-2 rounded-full bg-blue-700"></span>
+            <span>{entry}</span>
+          </li>
+        ))}
+      </ul>
+    </article>
+
+    <article class="glass-card rounded-[1.75rem] p-7">
+      <h2 class="text-2xl font-semibold text-slate-900">Career Pathways</h2>
+      <ul class="mt-5 space-y-3 text-sm leading-7 text-slate-700">
+        {detail.careerPathways.map((path) => (
+          <li class="flex gap-3">
+            <span class="mt-2 h-2 w-2 rounded-full bg-blue-700"></span>
+            <span>{path}</span>
+          </li>
+        ))}
+      </ul>
+    </article>
+  </section>
+
+  <section class="container-shell mt-20 space-y-8">
+    <SectionHeader
+      eyebrow="Related Programmes"
+      title="Explore other available study options"
+      copy="Compare pathways and choose the route that best fits your goals."
+    />
+
+    <div class="grid gap-6 lg:grid-cols-2">
+      {relatedProgrammes.map((item) => (
+        <ProgramCard item={item} />
+      ))}
+    </div>
+  </section>
+
+  <CTA
+    title="Need admissions guidance for this programme?"
+    copy="Contact the admissions team or use WhatsApp support for entry clarification and next steps."
+    primaryHref="/contact"
+    primaryLabel="Contact Admissions"
+    secondaryHref={`https://wa.me/${site.whatsAppNumber}`}
+    secondaryLabel={`WhatsApp ${site.whatsAppDisplay}`}
+  />
+</MainLayout>

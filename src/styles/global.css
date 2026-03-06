@@ -22,10 +22,14 @@ body {
     radial-gradient(circle at top right, rgba(210,164,60,0.16), transparent 22%),
     linear-gradient(180deg, #f8fbff 0%, #ffffff 24%, #f7fbff 100%);
   overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
 }
 
 main {
   overflow-x: clip;
+  position: relative;
+  z-index: 1;
 }
 
 img {
@@ -37,7 +41,12 @@ img {
 }
 
 .glass-card {
-  @apply border border-white/60 bg-white/80 shadow-[0_20px_70px_-30px_rgba(15,23,42,0.35)] backdrop-blur;
+  @apply border border-white/60 bg-white/80 shadow-[0_20px_70px_-30px_rgba(15,23,42,0.35)] backdrop-blur transition duration-300;
+}
+
+.glass-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 26px 72px -28px rgba(15, 23, 42, 0.45);
 }
 
 .section-title {
@@ -92,4 +101,96 @@ img {
 .grid-overlay {
   background-image: linear-gradient(to right, rgba(148,163,184,0.12) 1px, transparent 1px), linear-gradient(to bottom, rgba(148,163,184,0.12) 1px, transparent 1px);
   background-size: 40px 40px;
+}
+
+.mobile-nav-scroll {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+}
+
+.mobile-nav-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.mobile-nav-scroll > a {
+  scroll-snap-align: start;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  z-index: 0;
+  border-radius: 9999px;
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+body::before {
+  height: 320px;
+  width: 320px;
+  left: -90px;
+  top: 120px;
+  background: rgba(45, 108, 223, 0.18);
+  animation: drift-a 14s ease-in-out infinite;
+}
+
+body::after {
+  height: 300px;
+  width: 300px;
+  right: -110px;
+  bottom: 70px;
+  background: rgba(210, 164, 60, 0.14);
+  animation: drift-b 16s ease-in-out infinite;
+}
+
+main > section {
+  animation: rise-in 650ms ease-out both;
+}
+
+main > section:nth-of-type(2) {
+  animation-delay: 60ms;
+}
+
+main > section:nth-of-type(3) {
+  animation-delay: 100ms;
+}
+
+@keyframes drift-a {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(45px, -18px, 0);
+  }
+}
+
+@keyframes drift-b {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-34px, 14px, 0);
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
 }
