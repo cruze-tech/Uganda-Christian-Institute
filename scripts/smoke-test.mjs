@@ -3,7 +3,7 @@ import path from 'node:path';
 
 const distDir = path.resolve('dist');
 
-const requiredRoutes = ['/', '/about', '/programmes', '/admissions', '/gallery', '/news', '/contact', '/404'];
+const requiredRoutes = ['/', '/about', '/programmes', '/admissions', '/gallery', '/news', '/contact', '/online-portal', '/downloads', '/application-forms', '/404'];
 const routeMarkers = {
   '/': 'Home Overview',
   '/about': 'About UCI Lira',
@@ -12,6 +12,9 @@ const routeMarkers = {
   '/gallery': 'Visual Gallery',
   '/news': 'News and Updates',
   '/contact': 'Contact UCI Lira',
+  '/online-portal': 'Online Portal',
+  '/downloads': 'Downloads',
+  '/application-forms': 'Application Forms',
   '/404': '404 Error'
 };
 

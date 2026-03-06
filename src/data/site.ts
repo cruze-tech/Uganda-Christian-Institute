@@ -6,10 +6,13 @@ export const site = {
     'A modern institutional website concept for Uganda Christian Institute School of Nursing and Midwifery, Lira, designed for admissions, programmes, gallery, news, and contact.',
   phonePrimary: '+256 781 425432',
   phoneSecondary: '+256 392 942986',
+  whatsAppDisplay: '0761435295',
+  whatsAppNumber: '256761435295',
   email: 'info@uci.ac.ug',
   location: 'Opelo Cell, Boroboro West Ward, Lira City East Division, Lira City, Uganda',
-  admissionsPortal: 'https://admission.uci.ac.ug/',
-  downloadsUrl: 'https://www.uci.ac.ug/downloads',
+  admissionsPortal: '/online-portal',
+  downloadsUrl: '/downloads',
+  applicationFormsUrl: '/application-forms',
   profileUrl: 'https://www.uci.ac.ug/topic/about',
   galleryUrl: 'https://www.uci.ac.ug/pictorials'
 };
@@ -144,7 +147,7 @@ export const admissionSteps = [
   },
   {
     title: 'Apply online through the official portal',
-    body: 'Submit your application on the official admissions portal and ensure all mandatory fields are completed accurately.'
+    body: 'Open the online portal page and continue with admissions support to complete all required submission details accurately.'
   },
   {
     title: 'Track updates and contact admissions',
@@ -163,7 +166,7 @@ export const admissionsChecklist = [
 export const faqs = [
   {
     q: 'Can visitors apply online directly from the site?',
-    a: 'Yes. The admissions page prominently links to the official online admissions portal and keeps downloadable application resources easy to find.'
+    a: 'Yes. The admissions page links to the online portal and forms flow, with direct contact support available while full portal features are being finalized.'
   },
   {
     q: 'Is the demo suitable for client review on Netlify?',

@@ -18,9 +18,23 @@ const { title, copy, primaryHref, primaryLabel, secondaryHref, secondaryLabel } 
       <p class="mt-4 max-w-2xl text-sm leading-7 text-white/80">{copy}</p>
     </div>
     <div class="flex flex-wrap gap-3">
-      <a href={primaryHref} target={primaryHref.startsWith('http') ? '_blank' : undefined} rel="noreferrer" class="inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-900">{primaryLabel}</a>
+      <a
+        href={primaryHref}
+        target={primaryHref.startsWith('http') ? '_blank' : undefined}
+        rel="noreferrer"
+        class="inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_36px_-16px_rgba(255,255,255,0.95)]"
+      >
+        {primaryLabel}
+      </a>
       {secondaryHref && secondaryLabel && (
-        <a href={secondaryHref} target={secondaryHref.startsWith('http') ? '_blank' : undefined} rel="noreferrer" class="inline-flex items-center justify-center rounded-full border border-white/25 bg-white/10 px-5 py-3 text-sm font-semibold text-white">{secondaryLabel}</a>
+        <a
+          href={secondaryHref}
+          target={secondaryHref.startsWith('http') ? '_blank' : undefined}
+          rel="noreferrer"
+          class="inline-flex items-center justify-center rounded-full border border-white/25 bg-white/10 px-5 py-3 text-sm font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-white/15 hover:shadow-[0_18px_38px_-18px_rgba(255,255,255,0.75)]"
+        >
+          {secondaryLabel}
+        </a>
       )}
     </div>
   </div>

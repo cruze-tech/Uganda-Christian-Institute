@@ -7,7 +7,7 @@ import { site, admissionSteps, admissionsChecklist, faqs } from '../data/site';
 
 <MainLayout
   title="Admissions | UCI Lira Application Guidance"
-  description="Follow the admissions flow for UCI Lira, including programme selection, required documents, and official online application access."
+  description="Follow the admissions flow for UCI Lira, including programme selection, required documents, and online portal guidance."
 >
   <section class="container-shell py-16 md:py-20">
     <div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
@@ -15,11 +15,12 @@ import { site, admissionSteps, admissionsChecklist, faqs } from '../data/site';
         <span class="eyebrow">Admissions Guide</span>
         <h1 class="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">Clear admissions flow from enquiry to application</h1>
         <p class="text-base leading-8 text-slate-600">
-          This section is designed to help applicants prepare confidently, submit correctly, and follow up with the admissions office when support is needed.
+          This section is designed to help applicants prepare confidently, use the portal/forms flow correctly, and follow up with admissions when support is needed.
         </p>
         <div class="flex flex-wrap gap-3">
-          <a href={site.admissionsPortal} target="_blank" rel="noreferrer" class="btn-primary">Open Admissions Portal</a>
-          <a href={site.downloadsUrl} target="_blank" rel="noreferrer" class="btn-secondary">Downloads and Forms</a>
+          <a href={site.admissionsPortal} class="btn-primary">Open Online Portal</a>
+          <a href={site.downloadsUrl} class="btn-secondary">Open Downloads</a>
+          <a href={site.applicationFormsUrl} class="btn-secondary">Application Forms</a>
         </div>
       </div>
 
@@ -90,8 +91,8 @@ import { site, admissionSteps, admissionsChecklist, faqs } from '../data/site';
   </section>
 
   <CTA
-    title="Submit your application through official channels"
-    copy="Use the admissions portal for final submission and reach the institute directly for clarifications on entry requirements."
+    title="Submit your application through the portal and forms flow"
+    copy="Use the online portal and forms pages, then contact the institute directly for clarifications on entry requirements."
     primaryHref={site.admissionsPortal}
     primaryLabel="Apply Online"
     secondaryHref="/contact"
